@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 2011, 2014 Eurotech and/or its affiliates All rights reserved. 
+	This program and the accompanying materials are made available under the 
+	terms of the Eclipse Public License v1.0 which accompanies this distribution, 
+	and is available at http://www.eclipse.org/legal/epl-v10.html Contributors: 
+	Eurotech -->
+<MetaData xmlns="http://www.osgi.org/xmlns/metatype/v1.2.0"
+	localization="en_us">
+	<OCD id="fr.rtone.kura.vpn.VpnClient" name="Rtone Vpn Client Config"
+		description="Configuration du Client VPN Rtone. ">
+
+		<Icon resource="VpnService" size="32" />
+		<AD id="username" name="username" type="String" cardinality="0"
+			required="true" default="type username and password"
+			description="Nom d'utilisateur du Server VON." />
+		<AD id="password" name="password" type="Password" cardinality="0"
+			required="true" default="password"
+			description="Mot de Passe du Server VPN." />
+
+	</OCD>
+
+	<Designate pid="fr.rtone.kura.vpn.VpnClient">
+		<Object ocdref="fr.rtone.kura.vpn.VpnClient" />
+	</Designate>
+</MetaData>

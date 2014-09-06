@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 2011, 2014 Eurotech and/or its affiliates All rights reserved. 
+	This program and the accompanying materials are made available under the 
+	terms of the Eclipse Public License v1.0 which accompanies this distribution, 
+	and is available at http://www.eclipse.org/legal/epl-v10.html Contributors: 
+	Eurotech -->
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0"
+	name="fr.rtone.kura.vpn.VpnClient" activate="activate"
+	deactivate="deactivate" modified="updated" enabled="true" immediate="true"
+	configuration-policy="require">
+	<implementation class="fr.rtone.kura.vpn.VpnClient" />
+
+	<!-- If the component is configurable through the Kura ConfigurationService, 
+		it must expose a Service. -->
+	<property name="service.pid" type="String"
+		value="fr.rtone.kura.vpn.VpnClient" />
+	<service>
+		<provide interface="fr.rtone.kura.vpn.VpnClient" />
+	</service>
+	<reference bind="setCloudService" cardinality="1..1"
+		interface="org.eclipse.kura.cloud.CloudService" name="CloudService"
+		policy="static" unbind="unsetCloudService" />
+	<reference bind="setDataTransportService" cardinality="1..1"
+		interface="org.eclipse.kura.data.DataTransportService" name="DataTransportService"
+		policy="static" unbind="unsetDataTransportService" />
+</scr:component>
